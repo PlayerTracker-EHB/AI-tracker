@@ -3,8 +3,8 @@ import os
  
 # MinIO Configuration
 MINIO_ENDPOINT = "127.0.0.1:9000"
-ACCESS_KEY = "9uHEe5lVLFOguxEj4FKr"
-SECRET_KEY = "7ne8RI9aNGp83fyKIiJfBFxh7KYS2Hg4Vha9aXsI"
+ACCESS_KEY = "H4tQkzvDMOkK65LhENXb"
+SECRET_KEY = "O055CIQenwTRWyT7PzuvOpHfsF88RVo6QoFLgnYS"
 SECURE = False  # Set to True if using HTTPS
  
 # Initialize MinIO Client

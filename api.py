@@ -6,8 +6,8 @@ import subprocess
 import os
 import newpos
 
-bucketname_video_original = "videoupload"
-bucketname_video_final = "videostats"
+bucketname_video_original = "uploaded-videos"
+bucketname_video_final = "processed-videos"
 bucketname_heatmap = "heatmap"
 
 app = FastAPI()
@@ -16,6 +16,11 @@ app = FastAPI()
 class UploadRequest(BaseModel):
     fileName: str
     gameId: int
+
+@app.get("/hello")
+async def root():
+    print("yes")
+    return {"message": "Hello World"}
 
 
 @app.post("/upload")
@@ -76,7 +81,7 @@ async def uploadvideo(request: UploadRequest):
    
 
      # Send possession data to the FastAPI server
-    api_url = "http://127.0.0.1:8000/stats"  # Update with actual server URL if deployed
+    api_url = "http://127.0.0.1:3333/stats"  # Update with actual server URL if deployed
     payload = {
         "gameId" : gameId,
         "videoName": video_output_name,
