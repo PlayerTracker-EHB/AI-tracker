@@ -8,7 +8,7 @@ import newpos
 
 bucketname_video_original = "uploaded-videos"
 bucketname_video_final = "processed-videos"
-bucketname_heatmap = "heatmap"
+bucketname_heatmap = "heatmaps"
 
 app = FastAPI()
 
@@ -81,7 +81,7 @@ async def uploadvideo(request: UploadRequest):
    
 
      # Send possession data to the FastAPI server
-    api_url = "http://127.0.0.1:3333/stats"  # Update with actual server URL if deployed
+    api_url = "http://backend:3333/stats"  # Update with actual server URL if deployed
     payload = {
         "gameId" : gameId,
         "videoName": video_output_name,

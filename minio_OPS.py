@@ -2,7 +2,7 @@ from minio import Minio
 import os
  
 # MinIO Configuration
-MINIO_ENDPOINT = "127.0.0.1:9000"
+MINIO_ENDPOINT = "minio:9000"
 ACCESS_KEY = "H4tQkzvDMOkK65LhENXb"
 SECRET_KEY = "O055CIQenwTRWyT7PzuvOpHfsF88RVo6QoFLgnYS"
 SECURE = False  # Set to True if using HTTPS
