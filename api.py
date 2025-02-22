@@ -5,6 +5,7 @@ import minio_OPS
 import subprocess
 import os
 import newpos
+import time
 
 bucketname_video_original = "uploaded-videos"
 bucketname_video_final = "processed-videos"
@@ -25,6 +26,8 @@ async def root():
 
 @app.post("/upload")
 async def uploadvideo(request: UploadRequest):
+    start_time = time.time()
+
     fileName = request.fileName
     gameId = request.gameId
     minioclient = minio_OPS.get_minio_client()
@@ -78,7 +81,9 @@ async def uploadvideo(request: UploadRequest):
 
     
 
-   
+    end_time = time.time()
+    execution_time = end_time - start_time  # Calculate execution time
+    print(f"Execution time: {execution_time:.2f} seconds")
 
      # Send possession data to the FastAPI server
     api_url = "http://backend:3333/stats"  # Update with actual server URL if deployed
@@ -91,13 +96,13 @@ async def uploadvideo(request: UploadRequest):
         "possessionTeamB": team_b_possession
     }
 
-    '''
+    
     try:
         response = requests.post(api_url, json=payload)
         print("Possession data sent:", response.json())
     except Exception as e:
         print(f"Error sending possession data: {e}")
-    '''
+    
 
 
     return {"message": f"File {payload} processed and cleaned up successfully"}
