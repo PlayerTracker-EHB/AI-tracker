@@ -89,7 +89,7 @@ async def uploadvideo(request: UploadRequest):
     api_url = "http://backend:3333/stats"  # Update with actual server URL if deployed
     payload = {
         "gameId" : gameId,
-        "videoName": video_output_name,
+        "videoName": fileName,
         "heatmapTeamA": f'team_a_{base_name}.png',
         "heatmapTeamB": f'team_b_{base_name}.png',
         "possessionTeamA": team_a_possession,
