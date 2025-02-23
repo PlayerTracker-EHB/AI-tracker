@@ -24,6 +24,7 @@ def upload_file(minio_client, bucket_name, object_name, file_path):
     if not os.path.exists(file_path):
         print(f"Error: File '{file_path}' not found.")
         return
+    ensure_bucket(minio_client, bucket_name)
     minio_client.fput_object(bucket_name, object_name, file_path)
     print(f"Uploaded '{file_path}' as '{object_name}' to bucket '{bucket_name}'.")
  
