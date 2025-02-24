@@ -7,8 +7,8 @@ import argparse
 # Function to process the video
 def process_video(video_filepath):
     # Load models
-    player_model = YOLO("./new_trained_player_model.pt")
-    ball_model = YOLO("./new_trained_ball_model.pt")
+    player_model = YOLO("./new_trained_player_model.pt", verbose=False, show=True)
+    ball_model = YOLO("./new_trained_ball_model.pt", verbose=False, show=True)
 
     # Open video file
     video = cv2.VideoCapture(video_filepath)

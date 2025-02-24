@@ -6,8 +6,8 @@ import os
 from ultralytics import YOLO
 
 # Load YOLO models
-player_model = YOLO("./new_trained_player_model.pt")
-ball_model = YOLO("./new_trained_ball_model.pt")
+player_model = YOLO("./new_trained_player_model.pt", verbose=False, show=True)
+ball_model = YOLO("./new_trained_ball_model.pt", verbose=False, show=True)
 
 # Create radarFolder if it doesn't exist
 os.makedirs("radarFolder", exist_ok=True)
