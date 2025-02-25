@@ -3,7 +3,7 @@ import numpy as np
 import requests
 from ultralytics import YOLO
 import argparse
-
+import torch
 # Function to process the video
 def process_video(video_filepath):
 

@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from ultralytics import YOLO
+import torch
 
 cuda_available = torch.cuda.is_available()
 device = torch.device("cuda:0" if cuda_available else "cpu")
