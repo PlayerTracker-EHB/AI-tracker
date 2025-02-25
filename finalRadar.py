@@ -5,9 +5,14 @@ import matplotlib.pyplot as plt
 import os
 from ultralytics import YOLO
 
+cuda_available = torch.cuda.is_available()
+device = torch.device("cuda:0" if cuda_available else "cpu")
+
+print(f"cuda is available: {cuda_available}")
+
 # Load YOLO models
-player_model = YOLO("./new_trained_player_model.pt")
-ball_model = YOLO("./new_trained_ball_model.pt")
+player_model = YOLO("./new_trained_player_model.pt").to("cuda")
+ball_model = YOLO("./new_trained_ball_model.pt").to("cuda")
 
 # Create radarFolder if it doesn't exist
 os.makedirs("radarFolder", exist_ok=True)

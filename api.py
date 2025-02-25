@@ -96,7 +96,6 @@ async def uploadvideo(request: UploadRequest):
         "possessionTeamB": team_b_possession
     }
 
-    
     try:
         response = requests.post(api_url, json=payload)
         print("Possession data sent:", response.json())

@@ -6,9 +6,15 @@ import argparse
 
 # Function to process the video
 def process_video(video_filepath):
+
+    cuda_available = torch.cuda.is_available()
+    device = torch.device("cuda:0" if cuda_available else "cpu")
+
+    print(f"cuda is available: {cuda_available}")
+
     # Load models
-    player_model = YOLO("./new_trained_player_model.pt")
-    ball_model = YOLO("./new_trained_ball_model.pt")
+    player_model = YOLO("./new_trained_player_model.pt").to("cuda")
+    ball_model = YOLO("./new_trained_ball_model.pt").to("cuda")
 
     # Open video file
     video = cv2.VideoCapture(video_filepath)
@@ -61,8 +67,8 @@ def process_video(video_filepath):
         frame_count += 1
 
         # Detect players
-        player_results = player_model(frame)[0]
-        ball_results = ball_model(frame)[0]
+        player_results = player_model(frame, verbose = True)[0]
+        ball_results = ball_model(frame,verbose = True)[0]
 
         jersey_colors, player_bboxes, detection_results = [], [], []
 
