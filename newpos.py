@@ -149,4 +149,4 @@ def process_video(video_filepath):
     out.release()
     cv2.destroyAllWindows()
 
-    return [team_a_possession, team_b_possession, "output_possession.mp4"]
+    return [round(team_a_possession,2), round(team_b_possession,2), "output_possession.mp4"]
