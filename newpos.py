@@ -10,7 +10,7 @@ def process_video(video_filepath):
     cuda_available = torch.cuda.is_available()
     device = torch.device("cuda:0" if cuda_available else "cpu")
 
-    print(f"cuda is available: {cuda_available}")
+    print(f"cuda posession is available: {cuda_available}")
 
     # Load models
     player_model = YOLO("./new_trained_player_model.pt").to("cuda")

@@ -9,7 +9,7 @@ import torch
 cuda_available = torch.cuda.is_available()
 device = torch.device("cuda:0" if cuda_available else "cpu")
 
-print(f"cuda is available: {cuda_available}")
+print(f"cuda heatmaps is available: {cuda_available}")
 
 # Load YOLO models
 player_model = YOLO("./new_trained_player_model.pt").to("cuda")
